@@ -50,12 +50,12 @@ export const PostCard = ({ slug, title, description, image, date, author }: Post
 
           {/* Post Footer */}
           <div className="flex items-center gap-3 border-t border-gray-400 py-4">
-            <div className="relative h-5 w-2 md:h-6 md:w-6 overflow-hidden rounded-full border-blue-200 border-[1px]">
+            <div className="relative h-5 w-5 md:h-6 md:w-6 overflow-hidden rounded-full border-blue-200 border-[1px]">
               <Image
                 src={author.avatar}
                 alt=""
                 fill
-                className="object-cover rounded-md"
+                className="object-cover rounded-full"
               />
             </div>
             <span className="text-body-xs text-gray-300">{author.name}</span>

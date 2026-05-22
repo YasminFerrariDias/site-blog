@@ -35,7 +35,7 @@ export const CustomerStorySection = () => {
 
               <div className="flex items-center gap-3">
                 <div className="relative h-10 w-10 overflow-hidden rounded-full">
-                  <Image  
+                  <Image
                     src={customerStory.author.avatar}
                     alt={customerStory.author.name}
                     fill
