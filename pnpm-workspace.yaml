@@ -1,4 +1,8 @@
 allowBuilds:
-  msw: set this to true or false
-  sharp: set this to true or false
-  unrs-resolver: set this to true or false
+  contentlayer: false
+  contentlayer2: true
+  esbuild: false
+  msw: false
+  protobufjs: false
+  sharp: true
+  unrs-resolver: true

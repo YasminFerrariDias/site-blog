@@ -12,9 +12,13 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: 'string',
-      resolve: (doc) => doc._raw.sourceFileName.replace('.md', '')
+      resolve: (doc: any) => doc._raw.sourceFileName.replace('.md', '')
     }
   },
 }))
 
-export default makeSource({ contentDirPath: 'posts', documentTypes: [Post] })
+export default makeSource({ 
+  contentDirPath: 'posts', 
+  documentTypes: [Post],
+  disableImportAliasWarning: true
+})
