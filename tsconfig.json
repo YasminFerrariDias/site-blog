@@ -23,7 +23,7 @@
         "./.contentlayer/generated"
       ]
     },
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true
   },
   "include": [
