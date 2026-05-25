@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -10,16 +12,19 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
-    }
+      "@/*": [
+        "./src/*"
+      ],
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
+      ]
+    },
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
   "include": [
     "next-env.d.ts",
@@ -27,5 +32,7 @@
     "**/*.tsx",
     ".contentlayer/generated"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
