@@ -10,7 +10,9 @@ export type ShareConfig = {
   text?: string
 }
 
-const SOCIAL_PROVIDERS = {
+export type SocialProvider = 'linkedin' | 'facebook' | 'slack' | 'twitter' | 'threads'
+
+export const SOCIAL_PROVIDERS = {
   linkeding: {
     name: 'LinkedIn',
     Icon: <RiLinkedinFill className="h-4 w-4" />,
