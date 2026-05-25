@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link"
 import Image from "next/image"
 import { Post } from "contentlayer/generated"
@@ -58,9 +60,9 @@ export const PostPage = ({ post }: PostPageProps) => {
               </h1>
 
               <Avatar.Container>
-                <Avatar.Image src={post?.author.avatar} alt={post.title} size="sm" />
+                <Avatar.Image src={post?.author?.avatar ?? ''} alt={post.title} size="sm" />
                 <Avatar.Content>
-                  <Avatar.Title>{post?.author.name}</Avatar.Title>
+                  <Avatar.Title>{post?.author?.name ?? 'Equipe Site.Set'}</Avatar.Title>
                   <Avatar.Description>
                     Publicado em {''}
                     <time dateTime={post?.date ?? ''}>{publishedDate}</time>
