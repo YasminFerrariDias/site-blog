@@ -15,7 +15,7 @@ export type SocialProvider = 'linkedin' | 'facebook' | 'slack' | 'twitter' | 'th
 export const SOCIAL_PROVIDERS = {
   linkeding: {
     name: 'LinkedIn',
-    Icon: <RiLinkedinFill className="h-4 w-4" />,
+    icon: <RiLinkedinFill className="h-4 w-4" />,
     shareUrl: (config: ShareConfig) =>
       `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
         config.url
@@ -23,7 +23,7 @@ export const SOCIAL_PROVIDERS = {
   },
   facebook: {
     name: 'Facebook',
-    Icon: <FaFacebookF className="h-4 w-4" />,
+    icon: <FaFacebookF className="h-4 w-4" />,
     shareUrl: (config: ShareConfig) =>
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
         config.url
