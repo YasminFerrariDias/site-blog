@@ -1,27 +1,20 @@
-import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
-import { allPosts } from "contentlayer/generated"
+import { Post } from "contentlayer/generated"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { Avatar } from "@/components/avatar"
 import { Markedown } from "@/components/markedown"
 import { Button } from "@/components/ui/button"
 import { useShare } from "@/hooks"
 
-export const PostPage = () => {
-  const router = useRouter()
-  const slug = router.query.slug as string
+export type PostPageProps = {
+  post: Post
+}
 
-  if (!slug) {
-    return <div>Carregando...</div>
-  }
-
-  const post = allPosts.find((post) =>
-    post.slug.toLowerCase() == slug.toLocaleLowerCase()
-  )
+export const PostPage = ({ post }: PostPageProps) => {
 
   const publishedDate = new Date(post?.date).toLocaleDateString('pt-BR')
-  const postUrl = `https://site.set/blog/${slug}`;
+  const postUrl = `https://site.set/blog/${post.slug}`;
 
   const { shareButtons } = useShare({
     url: postUrl,
@@ -89,14 +82,14 @@ export const PostPage = () => {
 
               <div className="flex justify-between md:flex-col gap-2">
                 {shareButtons.map((provider) => (
-                  <Button 
+                  <Button
                     key={provider.provider}
                     onClick={() => provider.action()}
                     variant='outline'
                     className="w-fit md:w-full justify-start gap-2"
                   >
                     {provider.icon}
-                    <span className="hidden md:block"> 
+                    <span className="hidden md:block">
                       {provider.name}
                     </span>
                   </Button>
