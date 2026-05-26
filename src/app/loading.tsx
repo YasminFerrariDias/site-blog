@@ -5,7 +5,7 @@ export default function Loading() {
     <div className="min-h-[400px] flex flex-col items-center justify-center px-4">
       <div className="relative">
         <LuLoader
-          size={62}
+          size={64}
           className="text-gray-400 animate-spin"
         />
 
