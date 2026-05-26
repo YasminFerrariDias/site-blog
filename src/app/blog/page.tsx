@@ -7,6 +7,6 @@ export default function BlogListPage() {
   );
 
   return (
-    <BlogList posts={[]} />
+    <BlogList posts={sortedPosts} />
   )
 }
