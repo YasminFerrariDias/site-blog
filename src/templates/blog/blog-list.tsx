@@ -14,13 +14,16 @@ export type BlogListProps = {
 export default function BlogList({ posts }: BlogListProps) {
   const searchParams = useSearchParams();
   const query = searchParams?.get('q') ?? ''
-  const pageTitle = query
-    ? `Resultado de busca para "${query}"`
-    : 'Dicas e estrátegias para impulsionar seu negócio'
 
-  const postList = query
+  const smallQuery = query.toLowerCase()
+
+  const pageTitle = smallQuery
+    ? `Resultado de busca para "${smallQuery}"`
+    : 'Dicas e estratégias para impulsionar seu negócio'
+
+  const postList = smallQuery
     ? posts.filter((post) =>
-      post.title.toLocaleLowerCase()?.includes(query)
+      post.title.toLowerCase()?.includes(smallQuery)
     )
     : posts;
 
