@@ -1,4 +1,3 @@
-import Link from "next/link"
 import Image from "next/image"
 import { Post } from "contentlayer/generated"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
