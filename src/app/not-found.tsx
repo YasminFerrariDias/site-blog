@@ -1,10 +1,42 @@
-﻿export default function NotFound() {
+import { Button } from "@/components/ui/button";
+import { SearchIcon } from "lucide-react";
+import Link from "next/link";
+import { LuFileQuestion } from "react-icons/lu";
+
+export default function NotFound() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
-      <div className="text-center px-4">
-        <h1 className="text-3xl font-bold mb-4">Page not found</h1>
-        <p className="text-base text-gray-300">The requested route does not exist.</p>
+    <div className="min-h-screen flex items-center justify-center px-4 flex-col">
+      <div className="max-w-md w-full text-center">
+        <LuFileQuestion
+          size={64}
+          className="text-gray-100 mx-auto mb-6"
+        />
       </div>
-    </main>
+
+      <div className="relative inline-block mb-3 font-sans">
+        <span className="text-8xl font-bold text-white inline-block tarnsform -rotate-12 -translate-y-2 -translate-x-1">4</span>
+        <span className="text-8xl font-bold text-white inline-block">0</span>
+        <span className="text-8xl font-bold text-white inline-block">4</span>
+      </div>
+
+      <p className="text-gray-100 mb-8">Página não encontrada</p>
+
+      <div className="mt-6 flex justify-center gap-4">
+        <Button variant="primary" asChild>
+          <Link href="/">
+            Home
+          </Link>
+        </Button>
+
+        <Button variant="secondary" asChild>
+          <Link href="/blog?q=">
+            <SearchIcon
+              size={16}
+            />
+            Pesquisar posts
+          </Link>
+        </Button>
+      </div>
+    </div>
   )
 }
