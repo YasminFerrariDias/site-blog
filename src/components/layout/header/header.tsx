@@ -13,11 +13,11 @@ export const Header = () => {
           <nav className="flex items-center gap-6">
             <ActiveLink href="/">Início</ActiveLink>
             <ActiveLink href="/blog">Blog</ActiveLink>
-            <Link href='/comecar'>
-              <Button variant="secondary">
+            <Button variant="secondary" asChild>
+              <Link href='/comecar'>
                 Começar
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </nav>
         </div>
       </div>

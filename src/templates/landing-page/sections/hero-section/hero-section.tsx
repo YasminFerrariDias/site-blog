@@ -10,7 +10,7 @@ export const HeroSection = () => {
         <div className="flex flex-col items-center justify-center gap-4 md:items-start lg:items-start">
           <h1 className="text-gray-100 text-heading-hg font-sans">
             Venda seus produtos como afiliado em um único lugar
-            </h1>
+          </h1>
 
           <div className="flex flex-col items-center justify-center gap-4 px-4 md:items-start lg:items-start">
             <div>
@@ -26,12 +26,12 @@ export const HeroSection = () => {
             </div>
 
             <div className="text-white flex flex-col gap-2 mt-5 items-center md:items-start ls:items-start">
-              <Link href="/criar-loja">
-                <Button className="rounded-full w-fit">
+              <Button className="rounded-full w-fit" asChild>
+                <Link href="/criar-loja">
                   Criar loja grátis
                   <ArrowRight />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
               <p className="text-gray-300 text-body-xs">Não precisa de cartão de crédito</p>
             </div>
           </div>

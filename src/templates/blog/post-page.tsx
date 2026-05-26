@@ -20,8 +20,8 @@ export const PostPage = ({ post }: PostPageProps) => {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink className="text-action-sm">
-                <Link href='/blog'>Blog</Link>
+              <BreadcrumbLink href='/blog' className="text-action-sm">
+                Blog
               </BreadcrumbLink>
             </BreadcrumbItem>
 
