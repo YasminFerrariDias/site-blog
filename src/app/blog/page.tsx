@@ -1,6 +1,7 @@
 import BlogList from "@/templates/blog/blog-list";
 import { allPosts } from "contentlayer/generated";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -30,6 +31,8 @@ export default function BlogListPage() {
   );
 
   return (
-    <BlogList posts={sortedPosts} />
+    <Suspense fallback={<div className="container py-24 text-gray-200 text-center">Carregando posts...</div>}>
+      <BlogList posts={sortedPosts} />
+    </Suspense>
   )
 }
