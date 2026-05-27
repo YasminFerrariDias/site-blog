@@ -1,5 +1,6 @@
 'use client'
 
+import { useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { InformationCard } from "./components/informationCard";
 import { Input } from "./components/input";
@@ -8,8 +9,12 @@ import { useToastContext } from "@/hooks/use-toast-context/use-toast-context";
 
 export default function CreatePage() {
   const toast = useToastContext();
+  const [isLoading, setIsLoading] = useState(false)
+  const hasShownToast = useRef(false);
 
   function handleInformation() {
+    if (isLoading) return;
+    if (hasShownToast.current) return;
     toast.success({
       heading: "Sucesso!",
       message: "Cadastro realizado com sucesso",
@@ -76,6 +81,7 @@ export default function CreatePage() {
             </div>
 
             <Button
+              type="button"
               variant="secondary"
               className="w-full"
               onClick={handleInformation}
@@ -92,7 +98,7 @@ export default function CreatePage() {
             <div className="h-px bg-gray-400" />
 
             <div className="flex flex-col items-center justify-center gap-2 text-gray-200 text-center md:flex-row md:gap-1">
-              <TbLockPassword color="text-cyan-400" />
+              <TbLockPassword color="#00E5FF" />
               <p>Seus dados estão seguros</p>
             </div>
           </div>

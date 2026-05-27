@@ -1,6 +1,7 @@
 allowBuilds:
   contentlayer: false
   contentlayer2: true
+  core-js-pure: set this to true or false
   esbuild: false
   msw: false
   protobufjs: false
