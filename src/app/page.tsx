@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Site.Set',
     description: 'Venda seus produtos como afiliado em um único lugar',
-    url: '#CAMINHO POSTADO + A FOTO OG',
+    url: 'https://site-blog-ochre.vercel.app/',
     siteName: 'Site.Set',
     locale: 'pt_BR',
     type: 'website',
     images: [
       {
-        url: '#CAMINHO POSTADO + A FOTO OG',
+        url: 'https://site-blog-ochre.vercel.app/public/og-image.jpg',
         width: 800,
         height: 600,
         alt: 'Site.Set'
