@@ -24,7 +24,16 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     authors: [{ name: post.author?.name }],
     robots: 'index, follow',
     openGraph: {
-      images: [post.image]
+      title: post.title,
+      description: post.description,
+      url: `https://site-blog-ochre.vercel.app/blog/${post.slug}`,
+      type: 'article',
+      images: [
+        {
+          url: post.image,
+          alt: post.title
+        }
+      ]
     }
   }
 }

@@ -1,10 +1,10 @@
 ---
 title: Transformando seu negócio em uma loja virtual
 description: Se você está buscando uma maneira simples e eficaz de vender seus produtos online, o Site.Set é a solução perfeita para você.
-date: 2024-12-20 10:20:00
+date: 2026-02-20 10:20:00
 image: /assets/primeiro-post.png
 author:
-  name: Aspen Dokidis
+  name: Vagner Guimaraes
   avatar: /customer-01.png
 ---
 

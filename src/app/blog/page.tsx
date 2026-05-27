@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog',
     description: 'Dicas e estratégias para impulsionar seu négocio',
-    url: '#CAMINHO POSTADO + A FOTO OG',
+    url: 'https://site-blog-ochre.vercel.app/blog/${post.slug}',
     siteName: 'Site.Set',
     locale: 'pt_BR',
     type: 'website',
     images: [
       {
-        url: '#CAMINHO POSTADO + A FOTO OG',
+        url: 'https://site-blog-ochre.vercel.app/blog/${post.slug}',
         width: 800,
         height: 600,
         alt: 'Site.Set - Blog'
