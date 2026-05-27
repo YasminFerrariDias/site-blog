@@ -1,6 +1,10 @@
 import { Layout } from "@/components/layout"
 import "@/styles/globals.css";
 import { Metadata } from "next";
+import { ToastProvider } from "./contexts/ToastProvider";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
 
 export const metadata: Metadata = {
   title: 'Site.Set',
@@ -8,13 +12,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Site.Set',
     description: 'Venda seus produtos como afiliado em um único lugar',
-    url: '#CAMINHO POSTADO + A FOTO OG',
+    url: 'https://site-blog-ochre.vercel.app/',
     siteName: 'Site.Set',
     locale: 'pt_BR',
     type: 'website',
     images: [
       {
-        url: '#CAMINHO POSTADO + A FOTO OG',
+        url: 'https://site-blog-ochre.vercel.app/public/og-image.jpg',
         width: 800,
         height: 600,
         alt: 'Site.Set'
@@ -31,9 +35,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Layout>
-          {children}
-        </Layout>
+        <ToastProvider>
+          <Layout>
+            {children}
+          </Layout>
+        </ToastProvider>
       </body>
     </html>
   )

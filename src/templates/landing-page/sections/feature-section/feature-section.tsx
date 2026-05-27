@@ -35,7 +35,7 @@ export const FeatureSection = () => {
               Tenha uma loja online personalizada com a cara da sua marca
             </h2>
             <Button className="rounded-full hidden mt-4 md:mt-auto md:flex w-fit" asChild>
-              <Link href='/criar-loja'>
+              <Link href='/create-loja'>
                 Criar loja grátis
                 <ArrowRight />
               </Link>
@@ -54,7 +54,7 @@ export const FeatureSection = () => {
               />
 
               <Button className="w-full gap-2 rounded-full mt-4 md:mt-auto md:hidden" asChild>
-                <Link href='/criar-loja'>
+                <Link href='/create-loja'>
                   Criar loja grátis
                   <ArrowRight />
                 </Link>
