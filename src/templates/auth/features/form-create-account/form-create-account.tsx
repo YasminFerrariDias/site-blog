@@ -27,14 +27,14 @@ export function FormCreateAccount() {
     confirmPassword?: string,
   }>({})
 
-  function handleChange(nameCamp: string, value: string) {
+  function handleChange(nameField: string, value: string) {
     setData({
       ...data,
-      [nameCamp]: value
+      [nameField]: value
     })
 
-    if (erro[nameCamp as keyof typeof erro]) {
-      setErro({ ...erro, [nameCamp]: undefined})
+    if (erro[nameField as keyof typeof erro]) {
+      setErro({ ...erro, [nameField]: undefined})
     }
   }
 

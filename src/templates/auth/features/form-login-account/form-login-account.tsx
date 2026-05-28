@@ -2,18 +2,73 @@ import { Button } from "@/components/ui/button";
 import { Input } from "../../components/input";
 import { TbLockPassword } from "react-icons/tb";
 import { useToastContext } from "@/hooks/use-toast-context";
-import { useRef } from "react";
+import { useState } from "react";
+import { z } from "zod";
+import { loginSchema } from "@/schemas/login-schema";
 
-type FormCreateAccount = {
-  handle: () => void
-}
-
-export function FormLoginAccount({ handle }: FormCreateAccount) {
+export function FormLoginAccount() {
   const toast = useToastContext();
-  const hasShownToast = useRef(false);
+
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+  })
+
+  const [erro, setErro] = useState<{
+    email?: string,
+    password?: string
+  }>({})
+
+  function handleChange(nameField: string, value: string) {
+    setData({
+      ...data,
+      [nameField]: value
+    })
+
+    if (erro[nameField as keyof typeof erro]) {
+      setErro({ ...erro, [nameField]: undefined })
+    }
+  }
+
+  function validateForm() {
+    const result = loginSchema.safeParse(data)
+
+    if (!result.success) {
+      const erros: any = {}
+      result.error.issues.forEach((issue: z.ZodIssue) => {
+        erros[issue.path[0]] = issue.message
+      })
+
+      return erros
+    }
+
+    return {}
+  }
+
+  function handleSubmit() {
+    const erros = validateForm()
+
+    if (Object.keys(erros).length > 0) {
+      setErro(erros)
+
+      toast.error({
+        heading: "Erro no login",
+        message: "Preencha todos os campos corretamente",
+        duration: 4000
+      })
+
+      return
+    }
+
+    setErro({})
+    toast.info({
+      heading: "Funcionalidade em desenvolvimento!",
+      message: "Cadastro simulado para demonstração",
+      duration: 3000
+    })
+  }
 
   function handleInformationAccount() {
-    if (hasShownToast.current) return;
     toast.info({
       heading: "Demonstração!",
       message: "Login social disponível apenas na versão completa do projeto",
@@ -24,9 +79,24 @@ export function FormLoginAccount({ handle }: FormCreateAccount) {
   return (
     <>
       <form action="" className="gap-4 flex flex-col">
-        <Input placeholder="seu@email" title="E-mail" />
+        <Input
+          name="email"
+          placeholder="seu@email"
+          title="E-mail"
+          value={data.email}
+          error={erro.email}
+          onChange={(e) => handleChange('email', e.target.value)}
+        />
 
-        <Input placeholder="••••••••" title="Senha" type="password" />
+        <Input
+          name="password"
+          placeholder="••••••••"
+          title="Senha"
+          type="password"
+          value={data.password}
+          error={erro.password}
+          onChange={(e) => handleChange('password', e.target.value)}
+        />
 
         <div className="flex flex-col gap-3">
           <label className="flex flex-row gap-2 text-gray-300 items-center">
@@ -44,7 +114,7 @@ export function FormLoginAccount({ handle }: FormCreateAccount) {
           type="button"
           variant="secondary"
           className="w-full"
-          onClick={handle}
+          onClick={handleSubmit}
         >
           Entrar
         </Button>
