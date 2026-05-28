@@ -1,12 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "../../components/input";
 import { TbLockPassword } from "react-icons/tb";
+import { useToastContext } from "@/hooks/use-toast-context";
+import { useRef } from "react";
 
 type FormCreateAccount = {
   handle: () => void
 }
 
 export function FormLoginAccount({ handle }: FormCreateAccount) {
+  const toast = useToastContext();
+  const hasShownToast = useRef(false);
+
+  function handleInformationAccount() {
+    if (hasShownToast.current) return;
+    toast.info({
+      heading: "Demonstração!",
+      message: "Login social disponível apenas na versão completa do projeto",
+      duration: 3000
+    });
+  };
+
   return (
     <>
       <form action="" className="gap-4 flex flex-col">
@@ -44,12 +58,12 @@ export function FormLoginAccount({ handle }: FormCreateAccount) {
         </div>
 
         <div className="flex justify-between gap-4 my-4">
-          <Button variant="none" className="w-full">Google</Button>
-          <Button variant="none" className="w-full">Github</Button>
+          <Button variant="none" className="w-full" onClick={handleInformationAccount}>Google</Button>
+          <Button variant="none" className="w-full" onClick={handleInformationAccount}>Github</Button>
         </div>
 
         <p className="text-gray-300 text-center text-body-sm">
-          Ainda não tem uma conta? <a className="text-blue-200">Criar conta grátis</a>
+          Ainda não tem uma conta? <a className="text-blue-200" href="/create-account">Criar conta grátis</a>
         </p>
 
         <div className="h-px bg-gray-400" />
