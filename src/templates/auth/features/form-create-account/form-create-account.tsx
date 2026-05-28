@@ -19,6 +19,8 @@ export function FormCreateAccount() {
     confirmPassword: '',
   })
 
+  const [consent, setConsent] = useState(false)
+
   const [erro, setErro] = useState<{
     namePeople?: string,
     email?: string,
@@ -26,6 +28,7 @@ export function FormCreateAccount() {
     nameStore?: string,
     password?: string,
     confirmPassword?: string,
+    consent?: string,
   }>({})
 
   function handleChange(nameField: string, value: string) {
@@ -35,21 +38,34 @@ export function FormCreateAccount() {
     })
 
     if (erro[nameField as keyof typeof erro]) {
-      setErro({ ...erro, [nameField]: undefined})
+      setErro({ ...erro, [nameField]: undefined })
+    }
+  }
+
+  function handleConsentChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setConsent(event.target.checked)
+
+    if (erro.consent) {
+      setErro({ ...erro, consent: undefined })
     }
   }
 
   function validateForm() {
+    const erros: any = {}
+
     const result = registerSchema.safeParse(data)
 
     if (!result.success) {
-      const erros: any = {}
       result.error.issues.forEach((issue: z.ZodIssue) => {
         erros[issue.path[0]] = issue.message
       })
-
-      return erros
     }
+    if (!consent) {
+      erros.consent = "Você precisa aceitar os Termos de Uso e Políticas de Privacidade"
+    }
+
+    return erros
+
     return {}
   }
 
@@ -139,13 +155,20 @@ export function FormCreateAccount() {
             <input
               type="checkbox"
               className="mt-1 h-5 w-5 accent-cyan-400 cursor-pointer"
+              checked={consent}
+              onChange={handleConsentChange}
             />
             <span className="text-body-sm">
               Li e aceito os
-              <Link href={"/termos-uso"} className="text-blue-200 ml-1">Termos de Uso</Link> e
+              <Link href={"/termos-uso"} className="text-blue-200 ml-1">Termos de Uso</Link>{' '} e
               <Link href={"/politica-privacidade"} className="text-blue-200 ml-1">Política de Privacidade</Link>
             </span>
           </label>
+          {erro.consent && (
+            <span className="text-red-400 text-sm ml-3">
+              {erro.consent}
+            </span>
+          )}
         </div>
 
         <Button
