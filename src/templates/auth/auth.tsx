@@ -27,18 +27,6 @@ export default function Auth({
   messageForm,
   children,
 }: AuthProps) {
-  const toast = useToastContext();
-  const hasShownToast = useRef(false);
-
-  function handleInformation() {
-    if (hasShownToast.current) return;
-    toast.info({
-      heading: "Funcionalidade em desenvolvimento!",
-      message: "Cadastro simulado para demonstração",
-      duration: 3000
-    });
-  };
-
   return (
     <div className="flex flex-col gap-12 px-6 py-10 md:flex-row md:justify-between md:px-10 xl:px-20">
       <div className="flex flex-col gap-16 md:w-1/2">
