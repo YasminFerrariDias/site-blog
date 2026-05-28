@@ -12,6 +12,7 @@ const buttonVariants = cva(
         primary:'bg-blue-200 text-white hover:bg-blue-100 rounded-full',
         secondary: 'bg-gray-100 text-gray-800 hover:bg-blue-100 rounded-full',
         outline: 'border border-gray-400 bg-gray-700 transition-colors duration-200 hover:text-blue-200 hover:border-blue-200',
+        none: 'text-gray-200 border border-gray-200/50 bg-gray-400 transition-colors rounded-md duration-200 hover:border-blue-200 py-4 hover:border-blue-300/50 hover:border-blue-200 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.15)] gap-4',
       },
       size: {
         default: 'h-10 px-4 py-2',

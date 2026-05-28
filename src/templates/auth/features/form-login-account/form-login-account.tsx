@@ -44,12 +44,12 @@ export function FormLoginAccount({ handle }: FormCreateAccount) {
         </div>
 
         <div className="flex justify-between gap-4 my-4">
-          <Button variant="secondary" className="w-full">Google</Button>
-          <Button variant={"secondary"} className="w-full">Github</Button>
+          <Button variant="none" className="w-full">Google</Button>
+          <Button variant="none" className="w-full">Github</Button>
         </div>
 
         <p className="text-gray-300 text-center text-body-sm">
-          Ainda não tem uma conta? <a className="text-cyan-400">Criar conta grátis</a>
+          Ainda não tem uma conta? <a className="text-blue-200">Criar conta grátis</a>
         </p>
 
         <div className="h-px bg-gray-400" />

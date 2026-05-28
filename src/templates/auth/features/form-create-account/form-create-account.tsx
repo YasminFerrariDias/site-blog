@@ -30,8 +30,8 @@ export function FormCreateAccount({ handle }: FormCreateAccount) {
             />
             <span className="text-body-sm">
               Li e aceito os
-              <a className="text-cyan-400 ml-1">Termos de Uso</a> e
-              <a className="text-cyan-400 ml-1">Política de Privacidade</a>
+              <a className="text-blue-200 ml-1">Termos de Uso</a> e
+              <a className="text-blue-200 ml-1">Política de Privacidade</a>
             </span>
           </label>
         </div>
@@ -48,7 +48,7 @@ export function FormCreateAccount({ handle }: FormCreateAccount) {
 
       <div className="gap-3 flex flex-col mt-6">
         <p className="text-gray-300 text-center text-body-sm">
-          Já tem uma conta? <a className="text-cyan-400">Faça login</a>
+          Já tem uma conta? <a className="text-blue-200">Faça login</a>
         </p>
 
         <div className="h-px bg-gray-400" />
