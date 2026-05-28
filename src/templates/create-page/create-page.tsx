@@ -15,9 +15,9 @@ export default function CreatePage() {
   function handleInformation() {
     if (isLoading) return;
     if (hasShownToast.current) return;
-    toast.success({
-      heading: "Sucesso!",
-      message: "Cadastro realizado com sucesso",
+    toast.info({
+      heading: "Funcionalidade em desenvolvimento!",
+      message: "Cadastro simulado para demonstração",
       duration: 3000
     });
   };
@@ -85,6 +85,7 @@ export default function CreatePage() {
               variant="secondary"
               className="w-full"
               onClick={handleInformation}
+              disabled={isLoading}
             >
               Criar conta gratuita
             </Button>
