@@ -22,10 +22,12 @@ export default function CreateAccount() {
     <Auth
       titleInformation="Comece sua loja virtual hoje mesmo"
       messageInformation="Junta-se a milhares de empreendedores que já transformaram seus negócios"
+
       textInformationCard1="Criação em minutos, sem código"
       textInformationCard2="Loja responsiva para todos os dispositivos"
       textInformationCard3="Suporte especializado 24/7"
       textInformationCard4="Primeiro 30 dias grátis"
+      
       titleForm="Criar sua conta grátis"
       messageForm="Preencha os dados abaixo para começar"
     >

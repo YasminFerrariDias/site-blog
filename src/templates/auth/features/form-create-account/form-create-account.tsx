@@ -28,7 +28,7 @@ export function FormCreateAccount({ handle }: FormCreateAccount) {
               type="checkbox"
               className="mt-1 h-5 w-5 accent-cyan-400 cursor-pointer"
             />
-            <span>
+            <span className="text-body-sm">
               Li e aceito os
               <a className="text-cyan-400 ml-1">Termos de Uso</a> e
               <a className="text-cyan-400 ml-1">Política de Privacidade</a>
@@ -46,14 +46,14 @@ export function FormCreateAccount({ handle }: FormCreateAccount) {
         </Button>
       </form>
 
-      <div className="gap-2 flex flex-col mt-6">
-        <p className="text-gray-300 text-center">
+      <div className="gap-3 flex flex-col mt-6">
+        <p className="text-gray-300 text-center text-body-sm">
           Já tem uma conta? <a className="text-cyan-400">Faça login</a>
         </p>
 
         <div className="h-px bg-gray-400" />
 
-        <div className="flex flex-col items-center justify-center gap-2 text-gray-200 text-center md:flex-row md:gap-1">
+        <div className="flex flex-col items-center justify-center gap-2 text-gray-300 text-center md:flex-row md:gap-1">
           <TbLockPassword color="#00E5FF" />
           <p>Seus dados estão seguros</p>
         </div>
