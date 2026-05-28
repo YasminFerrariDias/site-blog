@@ -12,7 +12,7 @@ type BlogPostPageProps = {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = params;
-  const post = allPosts.find((post) => post.slug == slug);
+  const post = allPosts.find((post) => post.slug === slug);
 
   if (!post) {
     return {}
