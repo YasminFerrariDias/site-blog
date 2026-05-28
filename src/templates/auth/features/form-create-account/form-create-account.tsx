@@ -1,26 +1,137 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "../../components/input";
 import { TbLockPassword } from "react-icons/tb";
+import { useState } from "react";
+import { useToastContext } from "@/hooks/use-toast-context";
+import { z } from "zod";
+import { registerSchema } from "@/schemas/register-schema";
 
-type FormCreateAccount = {
-  handle: () => void
-}
+export function FormCreateAccount() {
+  const toast = useToastContext();
 
-export function FormCreateAccount({ handle }: FormCreateAccount) {
+  const [data, setData] = useState({
+    namePeople: '',
+    email: '',
+    telephone: '',
+    nameStore: '',
+    password: '',
+    confirmPassword: '',
+  })
+
+  const [erro, setErro] = useState<{
+    namePeople?: string,
+    email?: string,
+    telephone?: string,
+    nameStore?: string,
+    password?: string,
+    confirmPassword?: string,
+  }>({})
+
+  function handleChange(nameCamp: string, value: string) {
+    setData({
+      ...data,
+      [nameCamp]: value
+    })
+
+    if (erro[nameCamp as keyof typeof erro]) {
+      setErro({ ...erro, [nameCamp]: undefined})
+    }
+  }
+
+  function validateForm() {
+    const result = registerSchema.safeParse(data)
+
+    if (!result.success) {
+      const erros: any = {}
+      result.error.issues.forEach((issue: z.ZodIssue) => {
+        erros[issue.path[0]] = issue.message
+      })
+
+      return erros
+    }
+    return {}
+  }
+
+  function handleSubmit() {
+    const erros = validateForm()
+
+    if (Object.keys(erros).length > 0) {
+      setErro(erros)
+
+      toast.error({
+        heading: "Erro no cadastro",
+        message: "Preencha todos os campos corretamente",
+        duration: 4000
+      })
+      return
+    }
+
+    setErro({})
+    toast.info({
+      heading: "Funcionalidade em desenvolvimento!",
+      message: "Cadastro simulado para demonstração",
+      duration: 3000
+    });
+  };
+
   return (
     <>
       <form action="" className="gap-4 flex flex-col">
-        <Input placeholder="Digite seu nome" title="Nome completo" />
+        <Input
+          name="namePeople"
+          placeholder="Digite seu nome"
+          title="Nome completo"
+          value={data.namePeople}
+          error={erro.namePeople}
+          onChange={(e) => handleChange('namePeople', e.target.value)}
+        />
 
-        <Input placeholder="seu@email" title="E-mail" />
+        <Input
+          name="email"
+          placeholder="seu@email"
+          title="E-mail"
+          value={data.email}
+          error={erro.email}
+          onChange={(e) => handleChange('email', e.target.value)}
+        />
 
-        <Input placeholder="(11) 99999-9999" title="Telefone" />
+        <Input
+          name="telephone"
+          placeholder="(11) 99999-9999"
+          title="Telefone"
+          value={data.telephone}
+          error={erro.telephone}
+          onChange={(e) => handleChange('telephone', e.target.value)}
+        />
 
-        <Input placeholder="minha-loja.site.set" title="Nome da loja" />
+        <Input
+          name="nameStore"
+          placeholder="minha-loja.site.set"
+          title="Nome da loja"
+          value={data.nameStore}
+          error={erro.nameStore}
+          onChange={(e) => handleChange('nameStore', e.target.value)}
+        />
 
-        <Input placeholder="••••••••" title="Senha" type="password" />
+        <Input
+          name="password"
+          placeholder="••••••••"
+          title="Senha"
+          type="password"
+          value={data.password}
+          error={erro.password}
+          onChange={(e) => handleChange('password', e.target.value)}
+        />
 
-        <Input placeholder="••••••••" title="Confirmar senha" type="password" />
+        <Input
+          name="confirmPassword"
+          placeholder="••••••••"
+          title="Confirmar senha"
+          type="password"
+          value={data.confirmPassword}
+          error={erro.confirmPassword}
+          onChange={(e) => handleChange('confirmPassword', e.target.value)}
+        />
 
         <div className="flex flex-col gap-3">
           <label className="flex items-start gap-2 text-gray-300">
@@ -40,7 +151,7 @@ export function FormCreateAccount({ handle }: FormCreateAccount) {
           type="button"
           variant="secondary"
           className="w-full"
-          onClick={handle}
+          onClick={handleSubmit}
         >
           Criar conta gratuita
         </Button>
