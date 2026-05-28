@@ -6,6 +6,7 @@ import { PostGridCard } from "./components/post-grid-card";
 import { Post } from "contentlayer/generated";
 import { Inbox } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import { useMemo } from "react";
 
 export type BlogListProps = {
   posts: Post[];
@@ -15,19 +16,23 @@ export default function BlogList({ posts }: BlogListProps) {
   const searchParams = useSearchParams();
   const query = searchParams?.get('q') ?? ''
 
-  const smallQuery = query.toLowerCase()
+  const {pageTitle, filteredPosts, hasPosts} = useMemo(() => {
+    const smallQuery = query.toLowerCase()
 
-  const pageTitle = smallQuery
-    ? `Resultado de busca para "${smallQuery}"`
-    : 'Dicas e estratégias para impulsionar seu negócio'
+    const pageTitle = smallQuery
+      ? `Resultado de busca para "${query}"`
+      : 'Dicas e estratégias para impulsionar seu negócio'
 
-  const postList = smallQuery
-    ? posts.filter((post) =>
-      post.title.toLowerCase()?.includes(smallQuery)
-    )
-    : posts;
+    const filteredPosts = smallQuery
+      ? posts.filter((post) =>
+        post.title.toLowerCase()?.includes(smallQuery)
+      )
+      : posts;
 
-  const hasPosts = postList.length > 0;
+    const hasPosts = filteredPosts.length > 0;
+
+    return {pageTitle, filteredPosts, hasPosts}
+  }, [posts, query])
 
   return (
     <div className="flex flex-col py-24 flex-grow h-full">
@@ -52,9 +57,9 @@ export default function BlogList({ posts }: BlogListProps) {
       </header>
 
       {/* Listagem de posts */}
-      {hasPosts && (
+      {hasPosts ? (
         <PostGridCard>
-          {postList.map((post) => (
+          {filteredPosts.map((post) => (
             <PostCard
               key={post._id}
               title={post.title}
@@ -69,9 +74,7 @@ export default function BlogList({ posts }: BlogListProps) {
             />
           ))}
         </PostGridCard>
-      )}
-
-      {!hasPosts && (
+      ) : (
         <div className="container px-8">
           <div className="flex flex-col items-center justify-center gap-8 border-dashed border-2 border-gray-300 p-8 md:p-12 rounded-lg">
             <Inbox className="h-12 w-12 text-cyan-100" />
