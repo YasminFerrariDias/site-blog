@@ -43,7 +43,7 @@ export default function Auth({
         </div>
       </div>
 
-      <div className="bg-gray-500 w-full max-w-full md:w-1/2 p-8 rounded-[28px] gap-3 flex flex-col mx-auto md:mx-0">
+      <div className="bg-gray-500 w-full max-w-full md:w-1/2 p-8 rounded-[28px] gap-6 flex flex-col mx-auto md:mx-0">
         <div>
           <h2
             className="text-3xl font-bold text-gray-100"

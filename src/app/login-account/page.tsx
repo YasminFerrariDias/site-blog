@@ -2,7 +2,7 @@
 
 import { useToastContext } from "@/hooks/use-toast-context";
 import Auth from "@/templates/auth/auth";
-import { FormCreateAccount } from "@/templates/auth/features/form-create-account";
+import { FormLoginAccount } from "@/templates/auth/features/form-login-account";
 import { useRef } from "react";
 
 export default function LoginAccount() {
@@ -31,7 +31,7 @@ export default function LoginAccount() {
       titleForm="Entrar na sua conta"
       messageForm="Insira suas credenciais para acessar"
     >
-      <FormCreateAccount handle={handleInformation} />
+      <FormLoginAccount handle={handleInformation} />
     </Auth>
   )
 }

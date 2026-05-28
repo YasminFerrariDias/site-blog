@@ -1,0 +1,64 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "../../components/input";
+import { TbLockPassword } from "react-icons/tb";
+
+type FormCreateAccount = {
+  handle: () => void
+}
+
+export function FormLoginAccount({ handle }: FormCreateAccount) {
+  return (
+    <>
+      <form action="" className="gap-4 flex flex-col">
+        <Input placeholder="seu@email" title="E-mail" />
+
+        <Input placeholder="••••••••" title="Senha" type="password" />
+
+        <div className="flex flex-col gap-3">
+          <label className="flex flex-row gap-2 text-gray-300 items-center">
+            <input
+              type="checkbox"
+              className="mt-1 h-5 w-5 accent-cyan-400 cursor-pointer"
+            />
+            <span className="text-body-sm">
+              Lembrar-me
+            </span>
+          </label>
+        </div>
+
+        <Button
+          type="button"
+          variant="secondary"
+          className="w-full"
+          onClick={handle}
+        >
+          Entrar
+        </Button>
+      </form>
+
+      <div className="gap-3 flex flex-col mt-6">
+        <div className="flex flex-row justify-between items-center gap-5">
+          <div className="h-px bg-gray-300 w-full" />
+          <p className="min-w-fit text-gray-300 text-body-sm">ou continue com</p>
+          <div className="h-px bg-gray-300 w-full" />
+        </div>
+
+        <div className="flex justify-between gap-4 my-4">
+          <Button variant="secondary" className="w-full">Google</Button>
+          <Button variant={"secondary"} className="w-full">Github</Button>
+        </div>
+
+        <p className="text-gray-300 text-center text-body-sm">
+          Ainda não tem uma conta? <a className="text-cyan-400">Criar conta grátis</a>
+        </p>
+
+        <div className="h-px bg-gray-400" />
+
+        <div className="flex flex-col items-center justify-center gap-2 text-gray-300 text-center md:flex-row md:gap-1">
+          <TbLockPassword color="#00E5FF" />
+          <p>Seus dados estão seguros</p>
+        </div>
+      </div>
+    </>
+  )
+}
