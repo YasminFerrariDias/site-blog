@@ -5,8 +5,11 @@ import { ToastContext, ToastContextType } from "./ToastContext";
 import { useState } from "react";
 import ToastMessage from "@/components/ToastMessage/ToastMessage";
 
-export function ToastProvider(props: any) {
-  const { children } = props;
+interface ToastProviderProps {
+  children: React.ReactNode
+}
+
+export function ToastProvider({ children }: ToastProviderProps) {
   const [toastData, setToastData] = useState<ToastType | undefined>(undefined);
 
   const showToast = (data: ToastType) => {
