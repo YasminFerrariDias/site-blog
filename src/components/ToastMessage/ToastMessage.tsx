@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { Toast } from "primereact/toast";
 
 export type ToastType = {
+  id?: number
   heading: string;
   message: string;
   type?: "error" | "success" | "info" | "warn"

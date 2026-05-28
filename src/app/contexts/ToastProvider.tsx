@@ -10,30 +10,39 @@ interface ToastProviderProps {
 }
 
 export function ToastProvider({ children }: ToastProviderProps) {
-  const [toastData, setToastData] = useState<ToastType | undefined>(undefined);
+  const [toastData, setToastData] = useState<ToastType[]>([]);
 
-  const showToast = (data: ToastType) => {
-    return setToastData(data)
+  function removeToast(id: number) {
+    setToastData(toastData.filter((toast) =>
+      toast.id !== id
+    ))
+  }
+
+  function addToast({ heading, message, duration, type }: ToastType) {
+    const id = Date.now()
+    const newToastData: ToastType = { id, heading, message, duration, type }
+
+    setToastData([...toastData, newToastData])
+
+    setTimeout(() => {
+      removeToast(id)
+    }, duration ?? 3000)
   }
 
   const success = ({ heading, message, duration }: ToastType) => {
-    const toastData: ToastType = { heading, message, duration, type: "success" }
-    showToast(toastData)
+    addToast({ heading, message, duration, type: "success" })
   };
 
   const warning = ({ heading, message, duration }: ToastType) => {
-    const toastData: ToastType = { heading, message, duration, type: "warn" }
-    showToast(toastData)
+    addToast({ heading, message, duration, type: "warn" })
   };
 
   const info = ({ heading, message, duration }: ToastType) => {
-    const toastData: ToastType = { heading, message, duration, type: "info" }
-    showToast(toastData)
+    addToast({ heading, message, duration, type: "info" })
   };
 
   const error = ({ heading, message, duration }: ToastType) => {
-    const toastData: ToastType = { heading, message, duration, type: "error" }
-    showToast(toastData)
+    addToast({ heading, message, duration, type: "error" })
   };
 
   const value: ToastContextType = { success, warning, info, error }
@@ -41,7 +50,11 @@ export function ToastProvider({ children }: ToastProviderProps) {
   return (
     <ToastContext.Provider value={value}>
       {children}
-      {toastData && <ToastMessage toast={toastData} />}
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+        {toastData.map((toast) => (
+          <ToastMessage key={toast.id} toast={toast}/>
+        ))}
+      </div>
     </ToastContext.Provider>
   )
 }
