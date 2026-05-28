@@ -78,7 +78,7 @@ export function FormLoginAccount() {
 
   return (
     <>
-      <form action="" className="gap-4 flex flex-col">
+      <form className="gap-4 flex flex-col">
         <Input
           name="email"
           placeholder="seu@email"

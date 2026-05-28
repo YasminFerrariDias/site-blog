@@ -31,7 +31,7 @@ export default function LoginAccount() {
       titleForm="Entrar na sua conta"
       messageForm="Insira suas credenciais para acessar"
     >
-      <FormLoginAccount handle={handleInformation} />
+      <FormLoginAccount />
     </Auth>
   )
 }
