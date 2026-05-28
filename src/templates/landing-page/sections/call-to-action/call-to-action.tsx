@@ -18,7 +18,7 @@ export const CallToAction = () => {
           </h2>
 
           <Button variant="primary" asChild className="mt-6">
-            <Link href="/create-loja">
+            <Link href="/create-account">
               Criar loja grátis
               <ArrowRight />
             </Link>
