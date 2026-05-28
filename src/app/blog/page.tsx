@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Dicas e estratégias para impulsionar seu négocio',
     url: 'https://site-blog-ochre.vercel.app/blog/',
     siteName: 'Site.Set',
-    locale: 'pt_BR',
+    locale: 'pt-BR',
     type: 'website',
     images: [
       {

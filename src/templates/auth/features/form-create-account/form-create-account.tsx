@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useToastContext } from "@/hooks/use-toast-context";
 import { z } from "zod";
 import { registerSchema } from "@/schemas/register-schema";
+import Link from "next/link";
 
 export function FormCreateAccount() {
   const toast = useToastContext();
@@ -141,8 +142,8 @@ export function FormCreateAccount() {
             />
             <span className="text-body-sm">
               Li e aceito os
-              <a className="text-blue-200 ml-1">Termos de Uso</a> e
-              <a className="text-blue-200 ml-1">Política de Privacidade</a>
+              <Link href={"/termos-uso"} className="text-blue-200 ml-1">Termos de Uso</Link> e
+              <Link href={"/politica-privacidade"} className="text-blue-200 ml-1">Política de Privacidade</Link>
             </span>
           </label>
         </div>

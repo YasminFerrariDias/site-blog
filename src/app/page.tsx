@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'Venda seus produtos como afiliado em um único lugar',
     url: 'https://site-blog-ochre.vercel.app/',
     siteName: 'Site.Set',
-    locale: 'pt_BR',
+    locale: 'pt-BR',
     type: 'website',
     images: [
       {
