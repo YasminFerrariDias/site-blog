@@ -36,7 +36,7 @@ export const Search = () => {
     if(hasQuery) {
       inputRef.current?.focus()
     }
-  })
+  }, [hasQuery])
 
   return (
     <form onSubmit={handleSearch} className="relative group w-full md:max-w-72 md:min-w-0">

@@ -159,7 +159,7 @@ export function FormCreateAccount() {
 
       <div className="gap-3 flex flex-col mt-6">
         <p className="text-gray-300 text-center text-body-sm">
-          Já tem uma conta? <a className="text-blue-200" href="./login-account">Faça login</a>
+          Já tem uma conta? <a className="text-blue-200" href="/login-account">Faça login</a>
         </p>
 
         <div className="h-px bg-gray-400" />
