@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { PostPage } from "@/templates/blog";
 import { allPosts } from "contentlayer/generated";
 import { Metadata } from "next";
+import { siteConfig } from '@/lib/site-config'
 
 type BlogPostPageProps = {
   params: {
@@ -13,7 +14,6 @@ type BlogPostPageProps = {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = params;
   const post = allPosts.find((post) => post.slug === slug);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
   if (!post) {
     return {}
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `${siteUrl}/blog/${post.slug}`,
+      url: `${siteConfig.url}/blog/${post.slug}`,
       type: 'article',
       images: [
         {
