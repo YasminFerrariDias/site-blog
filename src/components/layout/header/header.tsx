@@ -14,7 +14,7 @@ export const Header = () => {
             <ActiveLink href="/">Início</ActiveLink>
             <ActiveLink href="/blog">Blog</ActiveLink>
             <Button variant="secondary" asChild>
-              <Link href='/comecar' aria-label="Ir para página de início">
+              <Link href='/create-account' aria-label="Ir para página de início">
                 Começar
               </Link>
             </Button>
