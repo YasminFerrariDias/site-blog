@@ -3,6 +3,8 @@ import { allPosts } from "contentlayer/generated";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'Dicas e estratégias para impulsionar seu négocio',
@@ -10,13 +12,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog',
     description: 'Dicas e estratégias para impulsionar seu négocio',
-    url: 'https://site-blog-ochre.vercel.app/blog/',
+    url: `${siteUrl}/blog/`,
     siteName: 'Site.Set',
     locale: 'pt-BR',
     type: 'website',
     images: [
       {
-        url: 'https://site-blog-ochre.vercel.app/blog/og-image0blog.jpg',
+        url: `${siteUrl}/blog/og-image0blog.jpg`,
         width: 800,
         height: 600,
         alt: 'Site.Set - Blog'

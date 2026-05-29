@@ -6,19 +6,21 @@ import "primereact/resources/themes/lara-light-cyan/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+
 export const metadata: Metadata = {
   title: 'Site.Set',
   description: 'Venda seus produtos como afiliado em um único lugar',
   openGraph: {
     title: 'Site.Set',
     description: 'Venda seus produtos como afiliado em um único lugar',
-    url: 'https://site-blog-ochre.vercel.app/',
+    url: siteUrl,
     siteName: 'Site.Set',
     locale: 'pt-BR',
     type: 'website',
     images: [
       {
-        url: 'https://site-blog-ochre.vercel.app/public/og-image.jpg',
+        url: `${siteUrl}/public/og-image.jpg`,
         width: 800,
         height: 600,
         alt: 'Site.Set'

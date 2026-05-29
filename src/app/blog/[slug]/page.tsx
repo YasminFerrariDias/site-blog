@@ -13,6 +13,7 @@ type BlogPostPageProps = {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = params;
   const post = allPosts.find((post) => post.slug === slug);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
   if (!post) {
     return {}
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://site-blog-ochre.vercel.app/blog/${post.slug}`,
+      url: `${siteUrl}/blog/${post.slug}`,
       type: 'article',
       images: [
         {
