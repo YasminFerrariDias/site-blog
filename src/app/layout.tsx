@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${siteConfig.url}/public/og-image.jpg`,
+        url: `${siteConfig.url}/og-image.jpg`,
         width: 800,
         height: 600,
         alt: 'Site.Set'
