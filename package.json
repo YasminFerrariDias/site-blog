@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "contentlayer build",
+    "vercel-install": "pnpm install --no-frozen-lockfile || npm install",
     "build": "next build",
     "start": "next start"
   },
