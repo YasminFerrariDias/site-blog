@@ -13,7 +13,7 @@ export type ShareConfig = {
 export type SocialProvider = 'linkedin' | 'facebook' | 'slack' | 'twitter' | 'threads' | 'clipboard'
 
 export const SOCIAL_PROVIDERS = {
-  linkeding: {
+  linkedin: {
     name: 'LinkedIn',
     icon: <RiLinkedinFill className="h-4 w-4" />,
     shareUrl: (config: ShareConfig) =>
