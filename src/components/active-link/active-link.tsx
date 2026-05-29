@@ -17,6 +17,7 @@ export const ActiveLink = ({ children, href, ...rest }: ActiveLinkProps) => {
     <Link
       {...rest}
       href={href}
+      aria-current={isActive ? 'page' : undefined}
       className={cn(
         'text-action-sm transition-colors hover:text-blue-200', isActive ? 'text-blue-200' : 'text-gray-100'
       )}

@@ -28,6 +28,7 @@ export const PostShare = ({ url, title, description }: PostShareProps) => {
               onClick={() => provider.action()}
               variant='outline'
               className="w-fit md:w-full justify-start gap-2"
+              aria-label={`Compartilhar no ${provider.name}`}
             >
               {provider.icon}
               <span className="hidden md:block">

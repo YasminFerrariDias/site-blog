@@ -18,7 +18,10 @@ type PostCardProps = {
 
 export const PostCard = ({ slug, title, description, image, date, author }: PostCardProps) => {
   return (
-    <Link href={`/blog/${slug}`} className="w-full max-w-2xl rounded-[12px] border-[1px] border-gray-400 bg-gray-600 overflow-hidden transition-all duration-300 hover:border-[1px] hover:border-blue-300">
+    <Link
+      href={`/blog/${slug}`}
+      className="w-full max-w-2xl rounded-[12px] border-[1px] border-gray-400 bg-gray-600 overflow-hidden transition-all duration-300 hover:border-[1px] hover:border-blue-300"
+      aria-label={`Ler post: ${title}`}>
 
       {/* Post Content */}
       <div className="p-2 rounded-md overflow-hidden">

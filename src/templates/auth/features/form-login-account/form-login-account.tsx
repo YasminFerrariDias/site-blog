@@ -5,6 +5,7 @@ import { useToastContext } from "@/hooks/use-toast-context";
 import { useState } from "react";
 import { z } from "zod";
 import { loginSchema } from "@/schemas/login-schema";
+import Link from "next/link";
 
 export function FormLoginAccount() {
   const toast = useToastContext();
@@ -99,7 +100,7 @@ export function FormLoginAccount() {
         />
 
         <div className="flex flex-col gap-3">
-          <label className="flex flex-row gap-2 text-gray-300 items-center">
+          <label className="flex flex-row gap-2 text-gray-300 items-center" htmlFor="Lermbrar-me">
             <input
               type="checkbox"
               className="mt-1 h-5 w-5 accent-cyan-400 cursor-pointer"
@@ -115,6 +116,7 @@ export function FormLoginAccount() {
           variant="secondary"
           className="w-full"
           onClick={handleSubmit}
+          aria-label="Entrar na conta"
         >
           Entrar
         </Button>
@@ -128,12 +130,16 @@ export function FormLoginAccount() {
         </div>
 
         <div className="flex justify-between gap-4 my-4">
-          <Button variant="none" className="w-full" onClick={handleInformationAccount}>Google</Button>
-          <Button variant="none" className="w-full" onClick={handleInformationAccount}>Github</Button>
+          <Button variant="none" className="w-full" onClick={handleInformationAccount} aria-label="Entrar com Google">
+            Google
+          </Button>
+          <Button variant="none" className="w-full" onClick={handleInformationAccount} aria-label="Entrar com Github">
+            Github
+          </Button>
         </div>
 
         <p className="text-gray-300 text-center text-body-sm">
-          Ainda não tem uma conta? <a className="text-blue-200" href="/create-account">Criar conta grátis</a>
+          Ainda não tem uma conta? <Link className="text-blue-200" href="/create-account" aria-label="Criar conta grátis">Criar conta grátis</Link>
         </p>
 
         <div className="h-px bg-gray-400" />

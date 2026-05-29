@@ -23,13 +23,13 @@ export default function NotFound() {
 
       <div className="mt-6 flex justify-center gap-4">
         <Button variant="primary" asChild>
-          <Link href="/">
+          <Link href="/" araia-label="Voltar para a página inicial">
             Home
           </Link>
         </Button>
 
         <Button variant="secondary" asChild>
-          <Link href="/blog?q=">
+          <Link href="/blog?q=" aria-label="Pesquisar posts no blog">
             <SearchIcon
               size={16}
             />

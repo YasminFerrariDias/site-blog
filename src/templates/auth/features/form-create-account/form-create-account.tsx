@@ -175,6 +175,7 @@ export function FormCreateAccount() {
           type="button"
           variant="secondary"
           className="w-full"
+          aria-label="Criar conta para iniciar loja online"
           onClick={handleSubmit}
         >
           Criar conta gratuita
@@ -183,7 +184,7 @@ export function FormCreateAccount() {
 
       <div className="gap-3 flex flex-col mt-6">
         <p className="text-gray-300 text-center text-body-sm">
-          Já tem uma conta? <a className="text-blue-200" href="/login-account">Faça login</a>
+          Já tem uma conta? <Link href="/login-account" className="text-blue-200" aria-label="Fazer login">Faça login</Link>
         </p>
 
         <div className="h-px bg-gray-400" />

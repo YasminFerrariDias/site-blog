@@ -27,7 +27,7 @@ export const HeroSection = () => {
 
             <div className="text-white flex flex-col gap-2 mt-5 items-center md:items-start ls:items-start">
               <Button className="rounded-full w-fit" asChild>
-                <Link href="/create-account">
+                <Link href="/create-account" aria-label="Criar conta para iniciar loja online">
                   Criar loja grátis
                   <ArrowRight />
                 </Link>

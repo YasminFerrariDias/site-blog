@@ -11,7 +11,7 @@ type InputProps = {
 export function Input({ placeholder, title, name, value, error, onChange, type = 'text' }: InputProps) {
   return (
     <div className="flex flex-col w-full">
-      <label className="text-gray-200 font-medium ml-3 mb-1">{title}</label>
+      <label className="text-gray-200 font-medium ml-3 mb-1" htmlFor="{title}">{title}</label>
       <input
         type={type}
         name={name}
