@@ -65,8 +65,6 @@ export function FormCreateAccount() {
     }
 
     return erros
-
-    return {}
   }
 
   function handleSubmit() {
